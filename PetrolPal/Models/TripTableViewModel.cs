@@ -12,6 +12,8 @@ namespace PetrolPal.Models
         public string timeTo { get; set; }
         public double totalCost { get; set; }
         public double averageCost { get; set; }
+        public double totalFuel { get; set; }
         public double averageFuel { get; set; }
+        public double fuelCost { get; set; }
     }
 }

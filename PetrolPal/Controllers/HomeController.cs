@@ -53,8 +53,15 @@ namespace PetrolPal.Controllers
                 DateTime defaultTimeFrom = DateTime.Now.Subtract(t);
 
                 model.trips = new List<Trip>();
+                model.averageCost = 0.0;
+                model.averageFuel = 0.0;
+                model.totalCost = 0.0;
+                model.totalFuel = 0.0;
                 model.timeTo = defaultTimeTo.ToString("yyyy-MM-dd HH:mm");
                 model.timeFrom = defaultTimeFrom.ToString("yyyy-MM-dd HH:mm");
+
+                // Lets assume fuel cost is 230.1 kr / liter, random stuff
+                model.fuelCost = 230.1;
 
                 ds.regnumber = regnumber;
                 var tripsString = ds.getTripsData(model.timeFrom, model.timeTo);
@@ -67,8 +74,14 @@ namespace PetrolPal.Controllers
                     trip.startTime = data.StartTime;
                     trip.endTime = data.EndTime;
 
+                    model.totalFuel = model.totalFuel + trip.fuelUsed;
+                    model.totalCost = model.totalCost + (trip.fuelUsed * model.fuelCost);
+
                     model.trips.Add(trip);
                 }
+
+                model.averageFuel = model.totalFuel / model.trips.Count();
+                model.averageCost = model.totalCost / model.trips.Count();
 
                 return View(model);
             } 
