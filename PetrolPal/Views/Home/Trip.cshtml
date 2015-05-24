@@ -9,20 +9,20 @@
         <div class="trip-start well well-lg">
             <h5><b>Start:</b></h5>
             <div class="trip-starttime">Time: @Model.t.startTime</div>
-            <span>Lat: @Model.t.startLocation.Lat</span>
-            <span>Lon: @Model.t.startLocation.Lon</span>
+            <span>Latitude: @Model.t.startLocation.Lat.ToString("#.##")</span>
+            <span>Longitude: @Model.t.startLocation.Lon.ToString("#.##")</span>
         </div>
         <div class="trip-end well well-lg">
             <h5><b>End:</b></h5>
             <div class="trip-endtime">Time: @Model.t.endTime</div>
-            <span>Lat: @Model.t.endLocation.Lat</span>
-            <span>Lon: @Model.t.endLocation.Lon</span>
+            <span>Latitude: @Model.t.endLocation.Lat.ToString("#.##")</span>
+            <span>Longitude: @Model.t.endLocation.Lon.ToString("#.##")</span>
         </div>
     </div>
     <div class="well">            
         <a href="https://www.google.com/maps/dir/@Model.t.startLocation.Lat,@Model.t.startLocation.Lon/@Model.t.endLocation.Lat,@Model.t.endLocation.Lon/"><b>Click this link for google maps of the trip</b></a>
     </div>
-    <div class="trip-cost well well-sm">Cost: @Model.t.cost kr</div>
-    <div class="trip-fuel well well-sm">Fuel: @Model.t.fuelUsed liters</div>
-    <div class="trip-km well well-sm" style="overflow:hidden;">Kilometers: @Model.t.km kilometers</div>
+    <div class="trip-cost well well-sm">Cost:<b> @Model.t.cost.ToString("#") kr</b></div>
+    <div class="trip-fuel well well-sm">Fuel: @Model.t.fuelUsed.ToString("#.##") liters</div>
+    <div class="trip-km well well-sm" style="overflow:hidden;">Kilometers: @Model.t.km.ToString("#.##") kilometers</div>
 </div>
