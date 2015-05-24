@@ -83,18 +83,34 @@ a:visited{
 .date-picker {
 }
 
-@media(max-width: 768px) {
+
+#data-button {
+        margin: 0 auto;
+        float: left;   
+            margin-top: 25px;
 
 }
 
+@media(max-width: 992px) {
     #data-button {
-            margin: 0 auto;
-            float: left;   
+        margin-top:0px;
     }
+}
+
+
 
 
 .summary-body {
     padding: 10px 10px;
 
+
+}
+
+a:visited {
+    color: #428bca;
+}
+
+h3 {
+    clear:left;
 
 }
