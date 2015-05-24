@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "TripTable";
 }
 
@@ -12,16 +11,16 @@
         <h3>Select dates</h3>
         @using (Html.BeginForm())
         {
-                <div class="form-group date-picker col-md-5">
-                    <label for="timeFrom">From:</label>
-                    @Html.TextBoxFor(model => model.timeFrom, new { type = "date", @class="form-control"})
-                </div>
+            <div class="form-group date-picker col-md-5">
+                <label for="timeFrom">From:</label>
+                @Html.TextBoxFor(model => model.timeFrom, new { type = "date", @class = "form-control" })
+            </div>
                 <div class="form-group date-picker col-md-5">
                     <label for="timeTo">To:</label>
-                    @Html.TextBoxFor(model => model.timeTo, new { type = "date", @class="form-control"})
+                    @Html.TextBoxFor(model => model.timeTo, new { type = "date", @class = "form-control" })
                 </div>
                 <button type="submit" class="btn btn-default col-md-2 col-xs-12" id="data-button">Get data</button>
-           
+
         }
         <h3>Summary</h3>
         <div class="summary-body panel">
@@ -33,28 +32,37 @@
             <span>Average Distance: @Model.averageKm.ToString("#.##") km/trip</span><br />
         </div>
 
-        <h3>All trips</h3>
-        <div class="panel">
-            <table class="table table-hover">
-                <tr>
-                    <th>Start Time</th>
-                    <th>End Time</th>
-                    <th>Distance (km)</th>
-                    <th>Cost (kr)</th>
-                    <th id="lessSizeTH">Details</th>
-                </tr>
-                @foreach (var t in Model.trips)
-                {
-                    <tr>
-                        <td>@t.startTime</td>
-                        <td>@t.endTime</td>
-                        <td>@t.km</td>
-                        <td>@t.cost</td>
-                        <td id="lessSizeTH">@Html.ActionLink("View", "Trip", "Home", new { timeFrom = t.startTime, timeTo = t.endTime, cost = t.cost, fuel = t.fuelUsed, km = t.km, startLat = t.startLocation.Lat, startLon = t.startLocation.Lon, endLat = t.endLocation.Lat, endLon = t.endLocation.Lon, @id = "view-link" }, null)</td>
-                    </tr>
-                }
-            </table>
-        </div>
-         
+        @*<div class="jquery-script-clear"></div>
+  
+<div id="myDoughnut"> </div>
+<div id="mySmallDoughnut"> </div>
+
+<div id="myDoughnut"> </div>
+<div id="mySmallDoughnut"> </div>
+<script src="myscript.js"></script>*@
+
+<h3>All trips</h3>
+<div class="panel">
+    <table class="table table-hover">
+        <tr>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Distance (km)</th>
+            <th>Cost (kr)</th>
+            <th id="lessSizeTH">Details</th>
+        </tr>
+        @foreach (var t in Model.trips)
+        {
+            <tr>
+                <td>@t.startTime</td>
+                <td>@t.endTime</td>
+                <td>@t.km</td>
+                <td>@t.cost.ToString("#")</td>
+                <td id="lessSizeTH">@Html.ActionLink("View", "Trip", "Home", new { timeFrom = t.startTime, timeTo = t.endTime, cost = t.cost, fuel = t.fuelUsed, km = t.km, startLat = t.startLocation.Lat, startLon = t.startLocation.Lon, endLat = t.endLocation.Lat, endLon = t.endLocation.Lon, @id = "view-link" }, null)</td>
+            </tr>
+        }
+    </table>
+</div>
+
         </div>
 </div>
