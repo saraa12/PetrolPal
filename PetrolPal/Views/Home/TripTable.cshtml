@@ -5,33 +5,35 @@
 
 @model PetrolPal.Models.TripTableViewModel
 
-<h2>TripTable</h2>
+<h2>Trip summary</h2>
 
 <div class="row">
     <div class="col-md-12">
-        <p>Select the dates to display data</p>
+        <h3>Select dates</h3>
         @using (Html.BeginForm())
         {
-            <div class="form-group">
-                <label for="BeginDate">From:</label>
-                @Html.TextBoxFor(model => model.timeFrom, new { type = "date" })
-            </div>
-            <div class="form-group">
-                <label for="EndDate">To:</label>
-                @Html.TextBoxFor(model => model.timeTo, new { type = "date", })
-            </div>
-
-            <button type="submit">Get data</button>
+                <div class="form-group date-picker col-md-5">
+                    <label for="timeFrom">From:</label>
+                    @Html.TextBoxFor(model => model.timeFrom, new { type = "date", @class="form-control"})
+                </div>
+                <div class="form-group date-picker col-md-5">
+                    <label for="timeTo">To:</label>
+                    @Html.TextBoxFor(model => model.timeTo, new { type = "date", @class="form-control"})
+                </div>
+                <button type="submit" class="btn btn-default col-md-2 col-xs-12" id="data-button">Get data</button>
+           
         }
+        <h3>Summary</h3>
+        <div class="summary-body">
+            <span>Total Cost: @Model.totalCost.ToString("#") kr</span><br />
+            <span>Average Cost: @Model.averageCost.ToString("#") kr/trip</span><br />
+            <span>Total Fuel: @Model.totalFuel.ToString("#.##") l</span><br />
+            <span>Average Fuel: @Model.averageFuel.ToString("#.##") l/trip</span><br />
+            <span>Total Distance: @Model.totalKm.ToString("#.##") km</span><br />
+            <span>Average Distance: @Model.averageKm.ToString("#.##") km/trip</span><br />
+        </div>
 
-        <span>Total Cost: @Model.totalCost kr</span><br />
-        <span>Average Cost: @Model.averageCost kr</span><br />
-        <span>Total Fuel: @Model.totalFuel l</span><br />
-        <span>Average Fuel: @Model.averageFuel l</span><br />
-        <span>Total Distance: @Model.totalKm km</span><br />
-        <span>Average Distance: @Model.averageKm km</span><br />
-
-
+        <h3>All trips</h3>
         <table class="table table-striped">
             <tr>
                 <th>Start Time</th>
@@ -50,7 +52,7 @@
             }
         </table>
 
-
+        `
             
          
         </div>

@@ -77,3 +77,24 @@ a:visited{
 
 /* Set width on the form input elements since they're 100% wide by default */
 
+
+
+/* Sara css */
+.date-picker {
+}
+
+@media(max-width: 768px) {
+
+}
+
+    #data-button {
+            margin: 0 auto;
+            float: left;   
+    }
+
+
+.summary-body {
+    padding: 10px 10px;
+
+
+}
