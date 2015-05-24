@@ -11,11 +11,7 @@ body {
 }
 
 
-bg{
-	background: right bottom no-repeat;
-}
-
-img{
+.logo{
 
 	max-width: 100%
 }
