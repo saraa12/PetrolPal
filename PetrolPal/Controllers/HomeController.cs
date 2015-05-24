@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -82,6 +84,14 @@ namespace PetrolPal.Controllers
                 model.totalKm = data.Odo;
                 model.vehicleType = data.VehicleType;
                 model.nextInspection = data.NextInspection;
+
+                /*string asAscii = Encoding.ASCII.GetString(
+                    Encoding.Convert(Encoding.UTF8, Encoding.GetEncoding(Encoding.ASCII.EncodingName, new EncoderReplacementFallback(string.Empty), new DecoderExceptionFallback()), Encoding.UTF8.GetBytes(model.vehicleType))
+                );
+
+                model.vehicleType = asAscii;*/
+
+                model.vehicleType = Regex.Replace(model.vehicleType, @"[^\u0000-\u007F]", String.Empty);
 
                 return View(model);
             }
