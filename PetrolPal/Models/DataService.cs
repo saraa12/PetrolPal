@@ -29,7 +29,7 @@ namespace PetrolPal.Models
         {
             string requestname = "gettripsdata";
 
-            string url = "https://insolica.com/api/" + requestname + "?RegNumber=" + regnumber + "&key= " + key + "&from=" + timeFrom + "&to=" + timeTo;
+            string url = "https://insolica.com/api/" + requestname + "?RegNumber=" + regnumber + "&key=" + key + "&from=" + timeFrom + "&to=" + timeTo;
 
             WebClient c = new WebClient();
             var dataObject = c.DownloadString(url);
@@ -41,7 +41,7 @@ namespace PetrolPal.Models
         {
             string requestname = "getenginedata";
 
-            string url = "https://insolica.com/api/" + requestname + "?RegNumber=" + regnumber + "&key= " + key + "&from=" + timeFrom + "&to=" + timeTo;
+            string url = "https://insolica.com/api/" + requestname + "?RegNumber=" + regnumber + "&key=" + key + "&from=" + timeFrom + "&to=" + timeTo;
 
             WebClient c = new WebClient();
             var dataObject = c.DownloadString(url);
