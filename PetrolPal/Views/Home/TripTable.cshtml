@@ -56,7 +56,7 @@
                 <td>@t.startTime</td>
                 <td>@t.endTime</td>
                 <td>@t.km</td>
-                <td>@t.cost.ToString("#")</td>
+                <td>@t.cost.ToString("#.##")</td>
                 <td id="lessSizeTH">@Html.ActionLink("View", "Trip", "Home", new { timeFrom = t.startTime, timeTo = t.endTime, cost = t.cost, fuel = t.fuelUsed, km = t.km, startLat = t.startLocation.Lat, startLon = t.startLocation.Lon, endLat = t.endLocation.Lat, endLon = t.endLocation.Lon, @id = "view-link" }, null)</td>
             </tr>
         }
