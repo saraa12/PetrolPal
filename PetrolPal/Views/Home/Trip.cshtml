@@ -1,0 +1,25 @@
+﻿@model PetrolPal.Models.TripViewModel
+@{
+    ViewBag.Title = "Trip";
+}
+
+<h2>Trip</h2>
+
+<span>Cost: @Model.t.cost</span>
+<span>Fuel: @Model.t.fuelUsed</span>
+<span>Kilometers: @Model.t.km</span>
+<span>StartTime: @Model.t.startTime</span>
+<span>EndTime: @Model.t.endTime</span>
+<div>
+    StartLocation:
+    <span>Lat: @Model.t.startLocation.Lat</span>
+    <span>Lon: @Model.t.startLocation.Lon</span>
+</div>
+<div>
+    EndLocation:
+    <span>Lat: @Model.t.endLocation.Lat</span>
+    <span>Lon: @Model.t.endLocation.Lon</span>
+</div>
+<div>
+    <a href="https://www.google.com/maps/dir/@Model.t.startLocation.Lat,@Model.t.startLocation.Lon/@Model.t.endLocation.Lat,@Model.t.endLocation.Lon/">Click here for google maps tracking of the trip</a>
+</div>

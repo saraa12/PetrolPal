@@ -38,6 +38,7 @@
                 <th>End Time</th>
                 <th>Distance (km)</th>
                 <th>Fuel Used (l)</th>
+                <th #id="lessSizeTH">Link:</th>
             </tr>
             @foreach (var t in Model.trips)
             {
@@ -46,6 +47,7 @@
                 <td>@t.endTime</td>
                 <td>@t.km</td>
                 <td>@t.fuelUsed</td>
+                <td #id="lessSizeTH">@Html.ActionLink("View", "Trip", "Home", new { timeFrom = t.startTime, timeTo = t.endTime, cost = t.cost, fuel = t.fuelUsed, km = t.km, startLat = t.startLocation.Lat, startLon = t.startLocation.Lon, endLat = t.endLocation.Lat, endLon = t.endLocation.Lon }, null)</td>
             </tr>
             }
         </table>
