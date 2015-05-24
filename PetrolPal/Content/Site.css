@@ -127,3 +127,15 @@ color:#E60000;
 #summary-heading {
     padding-top:20px;
 }
+
+.trip-start {
+    font-size: 120%
+}
+
+.trip-end {
+    font-size: 120%;
+}
+
+.list-group{
+    font-size: 120%;
+}
