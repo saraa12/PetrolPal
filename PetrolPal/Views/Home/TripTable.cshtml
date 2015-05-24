@@ -8,7 +8,7 @@
 <h2>TripTable</h2>
 
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <p>Select the dates to display data</p>
         @using (Html.BeginForm())
         {
@@ -23,26 +23,34 @@
 
             <button type="submit">Get data</button>
         }
+
+        <span>Total Cost: @Model.totalCost kr</span><br />
+        <span>Average Cost: @Model.averageCost kr</span><br />
+        <span>Total Fuel: @Model.totalFuel l</span><br />
+        <span>Average Fuel: @Model.averageFuel l</span><br />
+        <span>Total Distance: @Model.totalKm km</span><br />
+        <span>Average Distance: @Model.averageKm km</span><br />
+
+
         <table class="table table-striped">
             <tr>
                 <th>Start Time</th>
                 <th>End Time</th>
-                <th>Fuel Used</th>
+                <th>Distance (km)</th>
+                <th>Fuel Used (l)</th>
             </tr>
             @foreach (var t in Model.trips)
             {
             <tr>
                 <td>@t.startTime</td>
                 <td>@t.endTime</td>
+                <td>@t.km</td>
                 <td>@t.fuelUsed</td>
             </tr>
             }
         </table>
 
-        <span>Total Cost: @Model.totalCost</span>
-        <span>Total Fuel: @Model.totalFuel</span>
-        <span>Average Cost: @Model.averageCost</span>
-        <span>Average Fuel: @Model.averageFuel</span>
+
             
          
         </div>
