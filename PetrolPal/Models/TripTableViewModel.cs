@@ -16,9 +16,6 @@ namespace PetrolPal.Models
         public double totalFuel { get; set; }
         public double averageFuel { get; set; }
         public double fuelCost { get; set; }
-        public IEnumerator GetEnumerator()
-        {
-            return (IEnumerator)this;
-        }
+
     }
 }

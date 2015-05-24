@@ -23,12 +23,27 @@
 
             <button type="submit">Get data</button>
         }
-        </div>
-               @foreach (var t in Model)
-               {
-                        
-               }
-        <div>
+        <table>
+            <tr>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Fuel Used</th>
+            </tr>
+            @foreach (var t in Model.trips)
+            {
+            <tr>
+                <td>@t.startTime</td>
+                <td>@t.endTime</td>
+                <td>@t.fuelUsed</td>
+            </tr>
+            }
+        </table>
+
+        <span>Total Cost: @Model.totalCost</span>
+        <span>Total Fuel: @Model.totalFuel</span>
+        <span>Average Cost: @Model.averageCost</span>
+        <span>Average Fuel: @Model.averageFuel</span>
+            
          
         </div>
 </div>
