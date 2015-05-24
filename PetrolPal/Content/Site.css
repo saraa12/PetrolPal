@@ -8,6 +8,8 @@
     background-position: 100% 100%; 
 }
 
+
+
 .logo{
 
 	max-width: 100%
@@ -77,7 +79,7 @@ div.innerClass{
     color: white;
 }
 
-h1,h2,h3 {
+h1,h2,h3,h4 {
     color: #E60000;
 }
 
@@ -92,6 +94,14 @@ color:#E60000;
     #about-body {
         font-size: 150%;
         color: #666666;
+    }
+
+    .vehicle-info-well {
+        font-size:130%;
+    }
+
+    .vehicle-title {
+        font-size: 150%;
     }
 
 
