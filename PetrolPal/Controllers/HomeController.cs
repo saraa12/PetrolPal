@@ -33,11 +33,11 @@ namespace PetrolPal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(IndexViewModel model)
+        public ActionResult Index(string registrationNumber)
         {
             ViewBag.Message = "Your application home page.";
 
-            regnumber = model.regnum;
+            regnumber = registrationNumber;
             ds.regnumber = regnumber;
             return RedirectToAction("TripTable");
         }
@@ -55,8 +55,10 @@ namespace PetrolPal.Controllers
                 model.trips = new List<Trip>();
                 model.averageCost = 0.0;
                 model.averageFuel = 0.0;
+                model.averageKm = 0;
                 model.totalCost = 0.0;
                 model.totalFuel = 0.0;
+                model.totalKm = 0;
                 model.timeTo = defaultTimeTo.ToString("yyyy-MM-dd HH:mm");
                 model.timeFrom = defaultTimeFrom.ToString("yyyy-MM-dd HH:mm");
 
@@ -74,18 +76,71 @@ namespace PetrolPal.Controllers
                     trip.fuelUsed = data.Fuel;
                     trip.startTime = data.StartTime;
                     trip.endTime = data.EndTime;
+                    trip.km = data.Km;
 
                     model.totalFuel = model.totalFuel + trip.fuelUsed;
                     model.totalCost = model.totalCost + (trip.fuelUsed * model.fuelCost);
+                    model.totalKm = model.totalKm + trip.km;
 
                     model.trips.Add(trip);
                 }
 
                 model.averageFuel = model.totalFuel / model.trips.Count();
                 model.averageCost = model.totalCost / model.trips.Count();
+                model.averageKm = model.totalKm / model.trips.Count();
 
                 return View(model);
             } 
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult TripTable(DateTime timeFrom, DateTime timeTo)
+        {
+            if (regnumber != null)
+            {
+                TripTableViewModel model = new TripTableViewModel();
+                model.trips = new List<Trip>();
+                model.averageCost = 0.0;
+                model.averageFuel = 0.0;
+                model.averageKm = 0;
+                model.totalCost = 0.0;
+                model.totalFuel = 0.0;
+                model.totalKm = 0;
+                model.timeTo = timeTo.ToString("yyyy-MM-dd HH:mm");
+                model.timeFrom = timeFrom.ToString("yyyy-MM-dd HH:mm");
+
+                // Lets assume fuel cost is 230.1 kr / liter, random stuff
+                model.fuelCost = 230.1;
+
+                ds.regnumber = regnumber;
+                var tripsString = ds.getTripsData(model.timeFrom, model.timeTo);
+                JArray trips = JArray.Parse(tripsString);
+                foreach (var obj in trips)
+                {
+                    Trip trip = new Trip();
+                    dynamic data = JObject.Parse(obj.ToString());
+                    trip.fuelUsed = data.Fuel;
+                    trip.startTime = data.StartTime;
+                    trip.endTime = data.EndTime;
+                    trip.km = data.Km;
+
+                    model.totalFuel = model.totalFuel + trip.fuelUsed;
+                    model.totalCost = model.totalCost + (trip.fuelUsed * model.fuelCost);
+                    model.totalKm = model.totalKm + trip.km;
+
+                    model.trips.Add(trip);
+                }
+
+                model.averageFuel = model.totalFuel / model.trips.Count();
+                model.averageCost = model.totalCost / model.trips.Count();
+                model.averageKm = model.totalKm / model.trips.Count();
+
+                return View(model);
+            }
             else
             {
                 return RedirectToAction("Index");

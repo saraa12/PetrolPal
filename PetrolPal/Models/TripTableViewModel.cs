@@ -15,7 +15,8 @@ namespace PetrolPal.Models
         public double averageCost { get; set; }
         public double totalFuel { get; set; }
         public double averageFuel { get; set; }
+        public int totalKm { get; set; }
+        public int averageKm { get; set; }
         public double fuelCost { get; set; }
-
     }
 }
