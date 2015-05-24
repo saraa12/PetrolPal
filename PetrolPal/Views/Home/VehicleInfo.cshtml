@@ -4,10 +4,14 @@
 }
 
 <h2>VehicleInfo</h2>
-
-<span>Registration Number: @Model.registrationNumber</span>
-<span>Vehicle Type: @Model.vehicleType</span>
-<span>IMEI: @Model.IMEI</span>
-<span>VIN: @Model.VIN</span>
-<span>Total km driven: @Model.totalKm.ToString("#.##")</span>
-<span>Next inspection date: @Model.nextInspection</span>
+<div class="row">
+    <div class="vehicle-info-well well well-lg">
+        <h4><b>Your vehicle:</b></h4>
+        <div class="vehicle-reg-num">Registration Number: <b>@Model.registrationNumber</b></div>
+        <div class="vehicle-type">Vehicle Type: @Model.vehicleType</div>
+        <div class="vehicle-IMEI">IMEI: <b>@Model.IMEI</b></div>
+        <div class="vehicle-VIN">VIN: <b>@Model.VIN</b></div>
+        <div class="vehicle-km">Total km driven: <b>@Model.totalKm.ToString("#.##")</b></div>
+        <div class="vehicle-next-inspec">Next inspection date: @Model.nextInspection</div>
+    </div>
+</div>
