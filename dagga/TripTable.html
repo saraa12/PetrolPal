@@ -1,0 +1,88 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ga$ Buddy</title>
+
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../PetrolPal/Content/Site.css" />
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">People</a></li>
+                    <li><a href="#">People</a></li>
+                    <li><a href="#">People</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<h2>Trip summary</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Select dates</h3>
+        <form>
+        
+                <div class="form-group date-picker col-md-5">
+                    <label for="timeFrom">From:</label>
+                    <input type = "date" class="form-control" id="timeFrom"></input>             
+               </div>
+                <div class="form-group date-picker col-md-5">
+                    <label for="timeTo">To:</label>
+                    <input type = "date" class="form-control" id="timeTo"></input>
+                </div>
+                <button type="submit" class="btn btn-default col-md-2 col-xs-12" id="data-button">Get data</button>
+           
+        
+    </form>
+        <h3>Summary</h3>
+        <div class="summary-body">
+            <span>Total Cost: 4444 kr</span><br />
+            <span>Average Cost: 44 kr/trip</span><br />
+            <span>Total Fuel: 434343 l</span><br />
+            <span>Average Fuel: 3444 l/trip</span><br />
+            <span>Total Distance: 344 km</span><br />
+            <span>Average Distance: 34 km/trip</span><br />
+        </div>
+
+        <h3>All trips</h3>
+        <table class="table table-striped">
+            <tr>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Distance (km)</th>
+                <th>Fuel Used (l)</th>
+                <th #id="lessSizeTH">Link:</th>
+            </tr>
+            
+            <tr>
+                <td>2011-22-32 23:23</td>
+                <td>2011-22-32 23:33</td>
+                <td>10 km</td>
+                <td>200 kr</td>
+                <td id="lessSizeTH"></td>
+            </tr>
+            
+        </table>
+
+        `
+            
+         
+        </div>
+</div>
