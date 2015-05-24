@@ -66,9 +66,9 @@ namespace PetrolPal.Controllers
                 ds.regnumber = regnumber;
                 var tripsString = ds.getTripsData(model.timeFrom, model.timeTo);
                 JArray trips = JArray.Parse(tripsString);
-                Trip trip = new Trip();
                 foreach (var obj in trips)
                 {
+                    Trip trip = new Trip();
                     dynamic data = JObject.Parse(obj.ToString());
                     trip.fuelUsed = data.Fuel;
                     trip.startTime = data.StartTime;
