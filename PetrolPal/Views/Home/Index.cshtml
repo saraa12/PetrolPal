@@ -5,16 +5,23 @@
 @model PetrolPal.Models.IndexViewModel
 
 <div class="row">
+    <div class="col-md-12 text-center"><h2> <img src="~/Content/Images/logo2.png" alt="Ga$Budy"/></h2></div>
+    <div class="col-md-4"></div>   
     <div class="col-md-4">
-       <h2> Welcome!</h2>
-        @using (Html.BeginForm())
-        {
-            <div class="form-group">
-                <label for="RegistrationNumber"></label>
-                @Html.TextBoxFor(model => model.regnum, new { type = "text"})
-            </div>
+        <div class="text-center">
+            @using (Html.BeginForm())
+            {
+                <div class="input-group">
+                    @Html.TextBoxFor(model => model.regnum, new { type = "text", @class="form-control", placeholder = "Car's registration number" })
+                    <span class="input-group-btn">
+                        <input type="submit" class="btn btn-default" value="Register" />
+                    </span>
+                </div>
 
-            <input type="submit" value="Select" />
-        }
-    </div>
+
+
+            }
+            <div class="col-md-4"></div>
 </div>
+</div>
+</div>      
