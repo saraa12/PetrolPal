@@ -11,7 +11,26 @@ namespace PetrolPal.Models
     {
         private string key = "DABwk0Z8IudITSREwZXqQ==";
 
-        public string regnumber { get; set; }
+        string regnumber = null;
+
+        public DataService(string _regnumber)
+        {
+            regnumber = _regnumber;
+        }
+
+        public bool registeredRegNumber()
+        {
+            if (regnumber != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public string getRegNumber()
+        {
+            return regnumber;
+        }
 
         public string getVehicleInfo()
         {

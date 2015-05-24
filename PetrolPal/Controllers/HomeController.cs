@@ -11,18 +11,14 @@ namespace PetrolPal.Controllers
 {
     public class HomeController : Controller
     {
-        public DataService ds = new DataService();
-        //public string regnumber { get; set; }
-        //DEBUGGING PURPOSES SECTION:
-        public string regnumber = "OT380";
-        //END DEBUGGING PURPOSES SECTION
+        public static DataService ds = null;
         
         [HttpGet]
         public ActionResult Index()
         {
             ViewBag.Message = "Your application home page.";
 
-            if (regnumber != null)
+            if (ds != null)
             {
                 return RedirectToAction("TripTable");
             }
@@ -37,15 +33,14 @@ namespace PetrolPal.Controllers
         {
             ViewBag.Message = "Your application home page.";
 
-            regnumber = regnum;
-            ds.regnumber = regnumber;
+            ds = new DataService(regnum);
             return RedirectToAction("TripTable");
         }
 
         [HttpGet]
         public ActionResult TripTable()
         {
-            if (regnumber != null)
+            if (ds != null)
             {
                 TimeSpan t = new TimeSpan(168, 00, 00);
                 DateTime defaultTimeTo = DateTime.Now;
@@ -62,7 +57,7 @@ namespace PetrolPal.Controllers
         [HttpPost]
         public ActionResult TripTable(DateTime timeFrom, DateTime timeTo)
         {
-            if (regnumber != null)
+            if (ds != null)
             {
                 return View(TripHelper(timeFrom, timeTo));
             }
@@ -75,14 +70,13 @@ namespace PetrolPal.Controllers
         [HttpGet]
         public ActionResult VehicleInfo()
         {
-            if (regnumber != null)
+            if (ds != null)
             {
                 VehicleInfoViewModel model = new VehicleInfoViewModel();
-                ds.regnumber = regnumber;
                 var infoString = ds.getVehicleInfo();
 
                 dynamic data = JObject.Parse(infoString);
-                model.registrationNumber = regnumber;
+                model.registrationNumber = data.RegNumber;
                 model.IMEI = data.IMEI;
                 model.VIN = data.VIN;
                 model.totalKm = data.Odo;
@@ -114,7 +108,6 @@ namespace PetrolPal.Controllers
             // Lets assume fuel cost is 230.1 kr / liter, random stuff
             model.fuelCost = 230.1;
 
-            ds.regnumber = regnumber;
             var tripsString = ds.getTripsData(model.timeFrom, model.timeTo);
             JArray trips = JArray.Parse(tripsString);
 
