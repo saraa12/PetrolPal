@@ -119,6 +119,17 @@ namespace PetrolPal.Controllers
                 trip.startTime = data.StartTime;
                 trip.endTime = data.EndTime;
                 trip.km = data.Km;
+                trip.cost = trip.fuelUsed * model.fuelCost;
+
+                dynamic startLocationData = JObject.Parse(ds.getPositionStartData(trip.startTime, trip.endTime));
+                trip.startLocation = new Location();
+                trip.startLocation.Lat = startLocationData.Lat;
+                trip.startLocation.Lon = startLocationData.Lon;
+
+                dynamic endLocationData = JObject.Parse(ds.getPositionEndData(trip.startTime, trip.endTime));
+                trip.endLocation = new Location();
+                trip.endLocation.Lat = endLocationData.Lat;
+                trip.endLocation.Lon = endLocationData.Lon;
 
                 model.totalFuel = model.totalFuel + trip.fuelUsed;
                 model.totalCost = model.totalCost + (trip.fuelUsed * model.fuelCost);
@@ -135,7 +146,26 @@ namespace PetrolPal.Controllers
             }
 
             return model;
-        } 
+        }
+
+        public ActionResult Trip(string timeFrom, string timeTo, double cost, double fuel, int km, double startLat, double startLon, double endLat, double endLon)
+        {
+            TripViewModel model = new TripViewModel();
+            model.t = new Trip();
+            model.t.startTime = timeFrom;
+            model.t.endTime = timeTo;
+            model.t.cost = cost;
+            model.t.fuelUsed = fuel;
+            model.t.km = km;
+            model.t.startLocation = new Location();
+            model.t.startLocation.Lat = startLat;
+            model.t.startLocation.Lon = startLon;
+            model.t.endLocation = new Location();
+            model.t.endLocation.Lat = endLat;
+            model.t.endLocation.Lon = endLon;
+
+            return View(model);
+        }
 
         public ActionResult About()
         {

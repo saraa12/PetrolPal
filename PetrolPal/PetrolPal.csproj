@@ -168,9 +168,11 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\DataService.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Location.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Trip.cs" />
     <Compile Include="Models\TripTableViewModel.cs" />
+    <Compile Include="Models\TripViewModel.cs" />
     <Compile Include="Models\VehicleInfoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -233,6 +235,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\TripTable.cshtml" />
     <Content Include="Views\Home\VehicleInfo.cshtml" />
+    <Content Include="Views\Home\Trip.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

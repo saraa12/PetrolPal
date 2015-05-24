@@ -56,6 +56,36 @@ namespace PetrolPal.Models
             return dataObject;
         }
 
+        public string getPositionEndData(string timeFrom, string timeTo)
+        {
+            string requestname = "getpositionhistory";
+
+            string url = "https://insolica.com/api/" + requestname + "?RegNumber=" + regnumber + "&key=" + key + "&from=" + timeFrom + "&to=" + timeTo;
+
+            WebClient c = new WebClient();
+            var dataObject = c.DownloadString(url);
+
+            JArray positions = JArray.Parse(dataObject);
+            String endPositionString = positions.ElementAt(0).ToString();
+
+            return endPositionString;
+        }
+
+        public string getPositionStartData(string timeFrom, string timeTo)
+        {
+            string requestname = "getpositionhistory";
+
+            string url = "https://insolica.com/api/" + requestname + "?RegNumber=" + regnumber + "&key=" + key + "&from=" + timeFrom + "&to=" + timeTo;
+
+            WebClient c = new WebClient();
+            var dataObject = c.DownloadString(url);
+
+            JArray positions = JArray.Parse(dataObject);
+            String startPositionString = positions.ElementAt(positions.Count() - 1).ToString();
+
+            return startPositionString;
+        }
+
         public string getEngineData(string timeFrom, string timeTo)
         {
             string requestname = "getenginedata";
