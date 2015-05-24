@@ -36,7 +36,9 @@ body {
 .date-picker {
 }
 
-
+h1, h2, h3, h4 {
+    color: white;
+}
 #data-button {
         margin: 0 auto;
         float: left;   
