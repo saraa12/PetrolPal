@@ -147,6 +147,23 @@ namespace PetrolPal.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult VehicleInfo()
+        {
+            VehicleInfoViewModel model = new VehicleInfoViewModel();
+            var infoString = ds.getVehicleInfo();
+
+            dynamic data = JObject.Parse(infoString);
+            model.registrationNumber = regnumber;
+            model.IMEI = data.IMEI;
+            model.VIN = data.VIN;
+            model.totalKm = data.Odo;
+            model.vehicleType = data.VehicleType;
+            model.nextInspection = data.NextInspection;
+
+            return View(model);
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
