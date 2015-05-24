@@ -11,7 +11,7 @@ namespace PetrolPal.Models
         public string registrationNumber { get; set; }
         public string IMEI { get; set; }
         public string VIN { get; set; }
-        public string totalKm { get; set; }
+        public double totalKm { get; set; }
         public string nextInspection { get; set; }
     }
 }
