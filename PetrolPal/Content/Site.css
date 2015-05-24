@@ -1,20 +1,22 @@
-﻿
-
-body {
+﻿body {
     padding-top: 90px;
     padding-bottom: 20px;
-    width: 100%;
-    background: url(Images/bg_traffic3.jpg);
+    width: 100%; 
+}
+
+.frontpage{
+	background: url(Images/bg_traffic3.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: 0% 0%; 
 }
 
-
 .logo{
 
 	max-width: 100%
 }
+
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
@@ -30,15 +32,11 @@ body {
 
 /* Set width on the form input elements since they're 100% wide by default */
 
-
-
 /* Sara css */
 .date-picker {
 }
 
-h1, h2, h3, h4 {
-    color: white;
-}
+
 #data-button {
         margin: 0 auto;
         float: left;   
@@ -52,13 +50,8 @@ h1, h2, h3, h4 {
     }
 }
 
-
-
-
 .summary-body {
     padding: 10px 10px;
-
-
 }
 
 a:visited {
@@ -69,3 +62,29 @@ h3 {
     clear:left;
 
 }
+
+div.outerClass{
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    height: 25px;
+    overflow: hidden;
+
+}
+div.innerClass{
+    width:100px;
+    height:100px;
+    border: 1px solid green;
+    border-radius: 360px;
+}
+
+
+
+
+
+
+
+
+
+
+
