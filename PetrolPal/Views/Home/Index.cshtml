@@ -2,17 +2,22 @@
     ViewBag.Title = "Home Page";
 }
 
+@model PetrolPal.Models.IndexViewModel
 
 <div class="row">
     <div class="col-md-4">
        <h2> Welcome!</h2>
         @using (Html.BeginForm())
         {
-            <label for="RegistrationNumber"></label>
-            @Html.TextBox("RegistrationNumber")
-            @Html.ValidationMessage("RegistrationNumber")
+            <div class="form-group">
+                <label for="RegistrationNumber"></label>
+                @Html.TextBoxFor(model => model.regnum)
+            </div>
+
             <input type="submit" value="Select" />
         }
+
+      
 
     </div>
 </div>
