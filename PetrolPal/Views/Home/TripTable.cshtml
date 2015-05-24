@@ -21,7 +21,7 @@
                 </div>
                 <button type="submit" class="btn btn-default col-md-2 col-xs-12" id="data-button">Get data</button>
         }
-        <h3>Summary</h3>
+        <h3 id="summary-heading">Summary</h3>
         <div class="summary-body panel">
             <span>Total Cost: @Model.totalCost.ToString("#") kr</span><br />
             <span>Average Cost: @Model.averageCost.ToString("#") kr/trip</span><br /><br/>
@@ -35,7 +35,7 @@
 
 <h3>All trips</h3>
 <div class="panel">
-    <table class="table table-hover">
+    <table class="table table-hover summary-table">
         <tr>
             <th>Start Time</th>
             <th>End Time</th>

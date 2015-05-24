@@ -40,14 +40,21 @@
     
 }
 
+.date-picker {
+    padding-left:0;
+}
+
 @media(max-width: 992px) {
     #data-button {
         margin-top:0px;
+        width:200px;
+
     }
 }
 
 .summary-body {
     padding: 10px 10px;
+    font-size:120%;
 }
 
 a:visited {
@@ -108,3 +115,15 @@ color:#E60000;
 
 
 
+.form-control {
+    font-size:120%;
+
+}
+
+.summary-table {
+    font-size:120%;
+}
+
+#summary-heading {
+    padding-top:20px;
+}
