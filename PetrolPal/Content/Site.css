@@ -2,14 +2,13 @@
     padding-top: 90px;
     padding-bottom: 20px;
     width: 100%; 
-}
-
-.frontpage{
-	background: url(Images/bg_traffic3.jpg);
+	background: url(Images/background.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: 0% 0%; 
+    background-position: 100% 100%; 
 }
+
+
 
 .logo{
 
@@ -32,16 +31,13 @@
 
 /* Set width on the form input elements since they're 100% wide by default */
 
-/* Sara css */
-.date-picker {
-}
-
-
 #data-button {
         margin: 0 auto;
         float: left;   
-            margin-top: 25px;
-
+            margin-top: 23px;
+            color: #E60000;
+            font-size:120%;
+    
 }
 
 @media(max-width: 992px) {
@@ -60,7 +56,6 @@ a:visited {
 
 h3 {
     clear:left;
-
 }
 
 div.outerClass{
@@ -79,10 +74,35 @@ div.innerClass{
 }
 
 
+#footer-text {
+    float:right;
+    color: white;
+}
 
+h1,h2,h3,h4 {
+    color: #E60000;
+}
 
+.btn-default {
+color:#E60000;
+}
 
+    .btn-default:hover {
+        color:#E60000;
+    }
 
+    #about-body {
+        font-size: 150%;
+        color: #666666;
+    }
+
+    .vehicle-info-well {
+        font-size:130%;
+    }
+
+    .vehicle-title {
+        font-size: 150%;
+    }
 
 
 
