@@ -15,7 +15,7 @@ namespace PetrolPal.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            ViewBag.Message = "Your application home page."
+            ViewBag.Message = "Your application home page.";
 
             if (regnumber != null)
             {
@@ -30,7 +30,7 @@ namespace PetrolPal.Controllers
         [HttpPost]
         public ActionResult Index(IndexViewModel model)
         {
-            ViewBag.Message = "Your application home page."
+            ViewBag.Message = "Your application home page.";
 
             regnumber = model.regnum;
             ds.regnumber = regnumber;
