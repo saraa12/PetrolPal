@@ -33,11 +33,11 @@ namespace PetrolPal.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(string registrationNumber)
+        public ActionResult Index(string regnum)
         {
             ViewBag.Message = "Your application home page.";
 
-            regnumber = registrationNumber;
+            regnumber = regnum;
             ds.regnumber = regnumber;
             return RedirectToAction("TripTable");
         }
@@ -72,7 +72,31 @@ namespace PetrolPal.Controllers
             }
         }
 
+        [HttpGet]
+        public ActionResult VehicleInfo()
+        {
+            if (regnumber != null)
+            {
+                VehicleInfoViewModel model = new VehicleInfoViewModel();
+                ds.regnumber = regnumber;
+                var infoString = ds.getVehicleInfo();
 
+                dynamic data = JObject.Parse(infoString);
+                model.registrationNumber = regnumber;
+                model.IMEI = data.IMEI;
+                model.VIN = data.VIN;
+                model.totalKm = data.Odo;
+                model.vehicleType = data.VehicleType;
+                model.nextInspection = data.NextInspection;
+
+                return View(model);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+
+        }
         private TripTableViewModel TripHelper(DateTime startTime, DateTime endTime)
         {
             TripTableViewModel model = new TripTableViewModel();
